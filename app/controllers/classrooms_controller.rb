@@ -2,6 +2,7 @@ class ClassroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
+    @classrooms = policy_scope(Classroom)
   end
 
   def new
