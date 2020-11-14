@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_233846) do
+ActiveRecord::Schema.define(version: 2020_11_14_141343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_11_12_233846) do
     t.boolean "is_correct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "question_id", null: false
+    t.index ["question_id"], name: "index_alternatives_on_question_id"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "alternative_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alternative_id"], name: "index_answers_on_alternative_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -35,6 +46,10 @@ ActiveRecord::Schema.define(version: 2020_11_12_233846) do
     t.datetime "released_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "classroom_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["classroom_id"], name: "index_questions_on_classroom_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,8 +63,16 @@ ActiveRecord::Schema.define(version: 2020_11_12_233846) do
     t.boolean "is_teacher"
     t.string "name"
     t.string "subject"
+    t.bigint "classroom_id", null: false
+    t.index ["classroom_id"], name: "index_users_on_classroom_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "alternatives", "questions"
+  add_foreign_key "answers", "alternatives"
+  add_foreign_key "answers", "users"
+  add_foreign_key "questions", "classrooms"
+  add_foreign_key "questions", "users"
+  add_foreign_key "users", "classrooms"
 end
