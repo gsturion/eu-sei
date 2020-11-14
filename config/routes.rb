@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "classrooms#index"
   resources :classrooms, only: [ :show ] do
-    resources :questions, only: [ :new, :create, :edit, :show, :delete ] do
-      resources :alternatives, only: [ :edit, :delete ]
+    resources :questions, only: [ :new, :create ] do
+      resources :alternatives, only: [ :new, :create ]
     end
   end
+
+  resources :questions, only: [ :show, :edit, :delete ]
+  resources :alternatives, only: [ :edit, :delete ]
 
   patch "questions/:id/send", to: "questions#send", as: :send_question
   get "classrooms/:id/dashboard", to: "classrooms#dashboard", as: :dashboard
