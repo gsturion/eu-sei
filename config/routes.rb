@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :questions, only: [ :show, :edit, :destroy ]
-  resources :alternatives, only: [ :edit, :destroy ]
+  resources :alternatives, only: [ :edit, :delete ]
 
   patch "questions/:id/send", to: "questions#send", as: :send_question
   get "classrooms/:id/dashboard", to: "classrooms#dashboard", as: :dashboard
