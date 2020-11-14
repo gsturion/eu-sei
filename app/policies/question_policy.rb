@@ -13,7 +13,7 @@ class QuestionPolicy < ApplicationPolicy
     user.is_teacher
   end
 
-  def send?
+  def send_question?
     record.user == user
   end
 

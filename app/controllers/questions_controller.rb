@@ -28,8 +28,8 @@ class QuestionsController < ApplicationController
   def destroy
   end
 
-  # def send
-  # end
+  def send_question
+  end
 
   private
   
