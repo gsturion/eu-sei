@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :questions, only: [ :show, :edit, :delete ]
-  resources :alternatives, only: [ :edit, :delete ]
+  resources :questions, only: [ :show, :edit, :destroy ]
+  resources :alternatives, only: [ :edit, :destroy ]
 
   patch "questions/:id/send", to: "questions#send", as: :send_question
   get "classrooms/:id/dashboard", to: "classrooms#dashboard", as: :dashboard
   get "classrooms/:id/feed", to: "classrooms#feed", as: :feed
-  post "/alternatives/:id/answers/create", to: "alternatives#create", as: :create_answer
+  post "alternatives/:id/answers/create", to: "alternatives#create", as: :create_answer
 end
