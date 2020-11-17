@@ -25,7 +25,17 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  def update
+    if @question.update(question_params)
+      redirect_to @question, notice: 'Questão atualizada com sucesso.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
+    @question.destroy
+    redirect_to questions_url, notice: 'Questão excluída com sucesso.'
   end
 
   def send_question
