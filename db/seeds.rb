@@ -1,4 +1,4 @@
-classroom = Classroom.new(name: "A", year: 1)
+classroom = Classroom.create!(name: "A", year: 1)
 
 User.create!(
   classroom_id: 1,
