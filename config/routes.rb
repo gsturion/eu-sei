@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :questions, only: [ :show, :edit, :destroy ]
+  resources :questions, only: [ :show, :edit, :update, :destroy ]
   resources :alternatives, only: [ :edit, :delete ]
 
   patch "questions/:id/send", to: "questions#send", as: :send_question
