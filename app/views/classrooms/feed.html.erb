@@ -1,2 +1,32 @@
-<h1>#<%= @classroom.year%>º
-<%=@classroom.name %></h1>
+<div class='container'>
+
+  <h1>#<%= @classroom.year%>º
+    <%=@classroom.name %></h1>
+  <h2>Aguarde...</h2>
+
+  <div id="messages" data-chatroom-id="<%= @classroom.id %>">
+  
+  <% @classroom.questions.each do |question| %>
+    <div class="message-container" id="message-<%= question.id %>">
+      <i class="author">
+        <span><%= question.user.name %></span>
+      </i>
+      <p><%= question.content %></p>
+    </div>
+  <% end %>
+  </div>
+
+  <div id="messages" data-chatroom-id="<%= @classroom.id %>">
+
+  <% @question.alternatives.each do |alternative| %>
+    <div class="message-container" id="message-<%= alternative.id %>">
+      <i class="author">
+        <span><%= alternative.user.name %></span>
+      </i>
+    <p><%= alternative.content %></p>
+    </div>
+  <% end %>
+  
+  </div>
+
+</div>
