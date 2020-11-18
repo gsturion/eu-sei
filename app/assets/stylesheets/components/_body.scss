@@ -4,7 +4,9 @@ body {
 }
 
 h1, h2{
-  color: black;
+  color: $strong-turquoise;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 .formtext {
