@@ -24,8 +24,7 @@ class ClassroomsController < ApplicationController
   def feed
     @classroom = Classroom.find(params[:id])
     authorize @classroom
-    @question = Question.new
-    @alternative = Alternative.new
+    @answer = Answer.new
   end
 
   def classroom_params
