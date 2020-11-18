@@ -3,9 +3,11 @@ class AlternativesController < ApplicationController
 
   def new
     @alternative = Alternative.new
+    authorize @alternative
   end
 
   def show
+    authorize @alternative
   end
 
   def edit
@@ -14,6 +16,9 @@ class AlternativesController < ApplicationController
   def create
     @alternative = Alternative.new(alternative_params)
     @alternative.question = @question
+    @question.classroom
+    authorize @alternative
+
 
     if @alternative.save
       redirect_to question_path(@question), notice: 'Alternativa criada com sucesso.'
@@ -47,4 +52,5 @@ class AlternativesController < ApplicationController
   def alternative_params
     params.require(:alternative).permit(:content, :is_correct)
   end
+
 end
