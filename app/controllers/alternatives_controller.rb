@@ -21,7 +21,7 @@ class AlternativesController < ApplicationController
 
 
     if @alternative.save
-      redirect_to question_path(@question), notice: 'Alternativa criada com sucesso.'
+      redirect_to new_question_alternative_path(@question), notice: 'Alternativa criada com sucesso.'
     else
       render :new
     end

@@ -6,5 +6,8 @@
   <%= f.input :is_correct, as: :radio_buttons %>
   <%= f.button :submit, class: 'btn btn-primary' %>
 
-
 <% end %>
+
+<p>
+  <%= link_to 'Sair', question_path(@question) %>
+</p>
