@@ -1,0 +1,7 @@
+<h1>Questões</h1>
+<% @questions.each do |question| %>
+  <ul>
+    <li><%= "#{question.lesson} - #{question.content}" %></li>
+  </ul>
+<% end %>
+  

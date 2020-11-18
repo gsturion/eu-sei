@@ -1,5 +1,6 @@
 classroom = Classroom.create!(name: "A", year: 1)
 
+
 User.create!(
   classroom_id: 1,
   email: "darci@yahoo.com",

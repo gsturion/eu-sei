@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [ :show, :edit, :destroy, :send ]
-  before_action :set_classroom, only: [ :create ]
+  before_action :set_classroom, only: [ :create, :new ]
+
+  def index
+    @questions = policy_scope(Question)
+  end
 
   def new
     @question = Question.new
@@ -10,8 +14,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.classroom = @classroom
+    @question.user_id = current_user.id
     authorize @question
-
+    
     if @question.save
       redirect_to question_path(@question), notice: 'Questão criada com sucesso!'
     else
@@ -20,6 +25,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    authorize @question
   end
 
   def edit

@@ -5,12 +5,20 @@ class QuestionPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def new?
     user.is_teacher
   end
 
   def create?
     user.is_teacher
+  end
+
+  def show?
+    true
   end
 
   def send_question?
