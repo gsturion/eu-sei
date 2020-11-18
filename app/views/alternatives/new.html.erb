@@ -1,9 +1,9 @@
 <h1>Crie as respostas para a pergunta <%= @question.content %></h1>
 
-<%= simple_form_for [@question, @alternative] do |f|%>
+<%= simple_form_for [@classroom, @question] do |f|%>
 
   <%= f.input :content %>
-  <%= f.input :is_correct, as: :radio_buttons %>
+  <%= f.input :is_correct %>
   <%= f.button :submit, class: 'btn btn-primary' %>
 
 <% end %>

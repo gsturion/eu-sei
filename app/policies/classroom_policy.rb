@@ -8,4 +8,8 @@ class ClassroomPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def feed?
+    true
+  end
 end

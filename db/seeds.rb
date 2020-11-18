@@ -17,3 +17,8 @@ User.create!(
   is_teacher: true,
   subject: "Matematica"
 )
+
+question = Question.create!(content: "2 + 2", lesson: 1, classroom_id: 1, user_id: 6)
+
+alternative1 = Alternative.create!(content: "4", is_correct: true, question_id: 1)
+alternative2 = Alternative.create!(content: "2", is_correct: false, question_id: 2)
