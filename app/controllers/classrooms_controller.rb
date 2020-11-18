@@ -21,6 +21,11 @@ class ClassroomsController < ApplicationController
     end
   end
 
+  def feed
+    @classroom = Classroom.find(params[:id])
+    authorize @classroom
+  end
+
   def classroom_params
     params.require(:classroom).permit(:name, :year)
   end
