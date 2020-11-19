@@ -1,6 +1,6 @@
 <div class='container col-3 whitebox'>
 
-  <h2 class="text-center mt-2 mb-5"> Turma: <%= @classroom.year%>º<%= @classroom.name %></h2>
+  <h2 class="text-center mt-2 mb-5"> Turma: <%= @classroom.year%>º<%=@classroom.name %></h2>
   <h4 class="text-center mt-2 mb-5"> Aguarde...</h4>
 
   <div id="messages" data-chatroom-id="<%= @classroom.id %>">
@@ -11,10 +11,11 @@
           <span><%= question.user.name %></span>
         </i>
         <p><%= question.content %></p>
-        <%= simple_form_for @answer, url: create_answer_path do |f| %>
-          <%= f.collection_radio_buttons :alternative, question.alternatives, :id, :alternative %>
-        <% end %>  
-        
+        <ul>
+          <% question.alternatives.each do |alternative| %>
+            <li><%= alternative.content %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
       
