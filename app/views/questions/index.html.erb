@@ -1,7 +1,20 @@
-<h1>Questões</h1>
+<div class='container col-3 whitebox'>
+<h2 class="text-center mt-2 mb-5">Questões</h2>
+
 <% @questions.each do |question| %>
-  <ul>
-    <li><%= "#{question.lesson} - #{question.content}" %></li>
-  </ul>
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id= "customSwitches">
+    <label class="custom-control-label" for="customSwitches">
+      <%= "Aula: #{question.lesson} - #{question.content}" %>
+    </label>
+  </div>
 <% end %>
+</div>
   
+<br>
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+
+

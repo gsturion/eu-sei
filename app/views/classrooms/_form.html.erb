@@ -1,6 +1,7 @@
-        <%= simple_form_for @answer, url:  create_answer_path do |f| %>
-          <% question.alternatives.each do |alternative| %>
-            <li><% alternative = alternative.content %></li>
-          <% end %>
-          <%= f.input :alternative, as: :radio_buttons, collection: @alternative, wrapper: :vertical_collection_inline %>
-        <% end %> 
+<%= simple_form_for @answer, url:  create_answer_path do |f| %>
+  <% f.input :question.alternatives.each do |alternative| %>
+    <li><% alternative = alternative.content %></li>
+  <% end %>
+  <%= f.input :alternative, as: :radio_buttons, collection: @alternative, wrapper: :vertical_collection_inline %>
+    <%= f.button :submit, class: "btn-primary" %>
+  <% end %>
