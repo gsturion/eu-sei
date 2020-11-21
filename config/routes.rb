@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :questions, only: [ :show, :edit, :update, :destroy ]
   resources :alternatives, only: [ :edit, :delete ]
 
-  patch "questions/:id/send", to: "questions#send", as: :send_question
+  patch "questions/:id/send", to: "questions#send_question", as: :send_question
   get "classrooms/:id/dashboard", to: "classrooms#dashboard", as: :dashboard
   get "classrooms/:id/feed", to: "classrooms#feed", as: :feed
   post "alternatives/:id/answers", to: "answers#create", as: :create_answer
