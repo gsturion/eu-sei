@@ -1,24 +1,16 @@
-<div  class="container pt-5">
-  <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4 whitebox">
-      <h2 class="text-center mt-2 mb-5">Questões</h2>
 
-      <% @questions.each do |question| %>
-        <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id= "customSwitches">
-          <label class="custom-control-label" for="customSwitches">
-            <%= "Aula: #{question.lesson} - #{question.content}" %>
-          </label>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
-<br>
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>
-
+<div class='container col-3 whitebox-question'>
+<h4 class="text-center mt-2 mb-2">Questões</h4>
+  
+  <% if @current_user_questios.empty? %>
+    <p>Não existem questões.</p>
+  <% else %>
+    
+    <% @current_user_questios.each do |question| %>
+      <div class="overflow-auto" style="max-width: 280px; max-height: 400px;">
+        <ul><%= "Aula#{question.lesson}: #{question.content}" %>
+        <%= link_to "Enviar", send_question_path(question), method: :patch , class: "btn btn-link"  %></ul>
+      </div>
+    <% end %>
 

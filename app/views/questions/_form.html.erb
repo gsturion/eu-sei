@@ -1,6 +1,6 @@
 <%= simple_form_for [@classroom, @question] do |f| %>
   <%= f.input :lesson %>
   <%= f.input :content %>
-  <%= f.input :released_at %>
+  <%= f.input :released_at, include_blank: true %>
   <%= f.submit "Criar questão", class: "btn btn-primary" %>
 <% end %>
