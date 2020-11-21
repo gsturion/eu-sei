@@ -17,10 +17,6 @@ class Question < ApplicationRecord
   end
 
   def can_be_displayed?
-    if self.released_at != nil and self.released_at <= DateTime.now
-      true
-    else
-      false
-    end
+    self.released_at != nil and self.released_at <= DateTime.now
   end
 end
