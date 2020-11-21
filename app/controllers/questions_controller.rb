@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [ :show, :edit, :destroy, :send ]
+  before_action :set_question, only: [ :show, :edit, :destroy, :send_question ]
   before_action :set_classroom, only: [ :create, :new ]
 
   def index
@@ -46,6 +46,11 @@ class QuestionsController < ApplicationController
   end
 
   def send_question
+    authorize @question
+    @question.update(released_at: DateTime.now)
+    if @question.save
+      redirect_to question_path, notice: "Questão enviada"
+    end
   end
 
   private
@@ -59,6 +64,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:content, :lesson, :releasedt_at)
+    params.require(:question).permit(:content, :lesson, :released_at)
   end
 end
