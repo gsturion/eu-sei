@@ -3,8 +3,12 @@ class QuestionsController < ApplicationController
   before_action :set_classroom, only: [ :create, :new ]
 
   def index
-    @questions = policy_scope(Question)
-    @current_user_questios = policy_scope(Question).joins(:user).where("users.id =?", current_user.id)
+    if params[:query].present?
+      @questions = policy_scope(Question).joins(:user).where('users.subject = ?', params[:query])
+    else
+      @questions = policy_scope(Question)
+    end
+    @current_user_questions = policy_scope(Question).joins(:user).where("users.id =?", current_user.id)
   end
 
   def new

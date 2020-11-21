@@ -1,16 +1,12 @@
-
-
 <div class='container col-3 whitebox-question'>
 <h4 class="text-center mt-2 mb-2">Questões</h4>
-  
-  <% if @current_user_questios.empty? %>
+  <% if @current_user_questions.empty? %>
     <p>Não existem questões.</p>
   <% else %>
-    
-    <% @current_user_questios.each do |question| %>
+    <% @current_user_questions.each do |question| %>
       <div class="overflow-auto" style="max-width: 280px; max-height: 400px;">
         <ul><%= "Aula#{question.lesson}: #{question.content}" %>
         <%= link_to "Enviar", send_question_path(question), method: :patch , class: "btn btn-link"  %></ul>
       </div>
     <% end %>
-
+</div>

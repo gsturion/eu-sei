@@ -12,4 +12,8 @@ class ClassroomPolicy < ApplicationPolicy
   def feed?
     true
   end
+
+  def dashboard?
+    true
+  end
 end
