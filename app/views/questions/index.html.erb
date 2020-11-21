@@ -4,6 +4,11 @@
   <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light " style="max-width: 260px; max-height: 300px;">
     <% @questions.each do |question| %>
       <%= "Aula: #{question.lesson} - #{question.content}" %>
+      <ol>
+        <% question.alternatives.each do |a| %>
+          <li><%= "#{a.content} - #{a.is_correct ? "Correta" : "Errada" }" %></li>
+        <% end %>  
+      </ol>
       <%= link_to "Enviar", send_question_path(question), method: :patch , class: "btn btn-primary" %>
     <% end %>
   </div>
