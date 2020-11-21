@@ -4,27 +4,24 @@
 
 <%= form_tag questions_path, method: :get do %>
   <%= hidden_field_tag :query,
-    params[:query],
-    class: "hidden",
-    value_method: "matematica"
+    'matematica',
+    class: "hidden"
   %>
   <%= submit_tag "Matematica", class: "btn btn-light" %>
 <% end %>
 
 <%= form_tag questions_path, method: :get do %>
   <%= hidden_field_tag :query,
-    params[:query],
-    class: "hidden",
-    value_method: "portugues"
+    'portugues',
+    class: "hidden"
   %>
   <%= submit_tag "Portugues", class: "btn btn-light" %>
 <% end %>
 
 <%= form_tag questions_path, method: :get do %>
   <%= hidden_field_tag :query,
-    params[:query],
-    class: "hidden",
-    value_method: "historia"
+    'historia',
+    class: "hidden"
   %>
   <%= submit_tag "Historia", class: "btn btn-light" %>
 <% end %>

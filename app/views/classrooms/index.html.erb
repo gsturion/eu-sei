@@ -1,2 +1,4 @@
 <h1 class="container">Hello World</h1>
 
+<%= link_to "Login", user_session_path, class: "btn btn-dark" %>
+<%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete%>

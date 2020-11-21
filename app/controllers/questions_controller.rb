@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   def index
     if params[:query].present?
-      @questions = policy_scope(Question).joins("INNER JOIN users ON users.subject = %#{params[:query]}%")
+      @questions = policy_scope(Question).joins(:user).where('users.subject = ?', params[:query])
     else
       @questions = policy_scope(Question)
     end

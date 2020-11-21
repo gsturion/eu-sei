@@ -6,7 +6,7 @@ teacher = User.create!(
   password: 123456,
   name: "Teacher",
   is_teacher: true,
-  subject: "Matematica"
+  subject: "matematica"
 )
 
 student = User.create!(
