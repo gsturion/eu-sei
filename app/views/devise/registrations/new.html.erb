@@ -11,7 +11,7 @@
                         required: true,
                         autofocus: true,
                         wrapper_html: { class: 'formtext' },
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "email" }%>,
             <%= f.input :classroom_id,
                         collection: Classroom.all.map{ |c| [ "#{c.year}-#{c.name}", c.id ] } %>
             <%= f.input :is_teacher,

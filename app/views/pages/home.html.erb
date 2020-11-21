@@ -1,7 +1,7 @@
 <div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/id/201/5184/3456.jpg);">
   <div class="container">
     <div class="pt-5 mt-5">
-      <h1 class="text-right">Lorem ipsum</h1>
+      <h1 class="text-right">Eu sei!</h1>
       <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <div class="btn btn-flat rounded float-right btn-home">
         <%= link_to "Acessar", user_session_path %>
@@ -66,43 +66,43 @@
 <div class="blackbox">
   <div  class="container pt-5">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4 whitebox">
-      <form class="text-center border border-light p-5" action="#!">
 
-          <p class="h4 mb-4">Contact us</p>
+      <form class="text-center border border-light p-5" action="#!" style="background-color:white">
+
+          <p class="h4 mb-4">Fale conosco</p>
 
           <!-- Name -->
-          <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+          <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Nome">
 
           <!-- Email -->
           <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
 
           <!-- Subject -->
-          <label>Subject</label>
+          <label>Assunto</label>
           <select class="browser-default custom-select mb-4">
-              <option value="" disabled>Choose option</option>
-              <option value="1" selected>Feedback</option>
-              <option value="2">Report a bug</option>
-              <option value="3">Feature request</option>
-              <option value="4">Feature request</option>
+              <option value="0" selected>Escolha uma opção</option>
+              <option value="1">Feedback</option>
+              <option value="2">Reportar um erro</option>
+              <option value="3">Deixar uma sugestão</option>
+              <option value="4">Outro assunto</option>
           </select>
 
           <!-- Message -->
           <div class="form-group">
-              <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+              <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Deixe sua mensagem"></textarea>
           </div>
 
           <!-- Copy -->
           <div class="custom-control custom-checkbox mb-4">
               <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-              <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+              <label class="custom-control-label" for="defaultContactFormCopy">Quero receber uma cópia da mensagem</label>
           </div>
 
           <!-- Send button -->
-          <button class="btn btn-info btn-block" type="submit">Send</button>
+          <button class="btn btn-info btn-block" type="submit">Enviar</button>
 
       </form>
-    </div>
+    
   </div>
 </div>
 </div>
