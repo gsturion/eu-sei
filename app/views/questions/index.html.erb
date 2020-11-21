@@ -7,6 +7,11 @@
     <label class="custom-control-label" for="customSwitches">
       <%= "Aula: #{question.lesson} - #{question.content}" %>
     </label>
+    <ol>
+      <% question.alternatives.each do |a| %>
+        <li><%= "#{a.content} - #{a.is_correct ? "Correta" : "Errada" }" %></li>
+      <% end %>  
+    </ol>
   </div>
 <% end %>
 </div>

@@ -3,7 +3,11 @@ class QuestionsController < ApplicationController
   before_action :set_classroom, only: [ :create, :new ]
 
   def index
-    @questions = policy_scope(Question)
+    if params[:query].present?
+      @questions = policy_scope(Question).joins("INNER JOIN users ON users.subject = %#{params[:query]}%")
+    else
+      @questions = policy_scope(Question)
+    end
   end
 
   def new
