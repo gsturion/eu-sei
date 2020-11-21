@@ -6,9 +6,6 @@
     <% @classroom.questions.each do |question| %>
       <% if not question.answered?(current_user) and question.can_be_displayed? %>
         <div class="message-container" id="message-<%= question.id %>">
-          <i class="author">
-            <span><%= question.user.name %></span>
-          </i>
           <p><%= question.content %></p>
           <%= simple_form_for @answer, url: create_answer_path, remote: true do |f| %>
             <%= f.input :alternative_id,

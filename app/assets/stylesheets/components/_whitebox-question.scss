@@ -1,0 +1,21 @@
+.whitebox-question {
+    // width: 390px;
+    height: 90vh;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 77px 15px 33px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+.custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+
+.table-wrapper-scroll-y {
+    display: block;
+    }
