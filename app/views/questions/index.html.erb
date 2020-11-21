@@ -1,21 +1,10 @@
-<div class='container col-3 whitebox'>
-<h2 class="text-center mt-2 mb-5">Questões</h2>
+<div class='container col-3 whitebox-question'>
+<h4 class="text-center mt-2 mb-2">Questões</h4>
 
-<% @questions.each do |question| %>
-  <div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id= "customSwitches">
-    <label class="custom-control-label" for="customSwitches">
+  <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light " style="max-width: 260px; max-height: 300px;">
+    <% @questions.each do |question| %>
       <%= "Aula: #{question.lesson} - #{question.content}" %>
       <%= link_to "Enviar", send_question_path(question), method: :patch , class: "btn btn-primary" %>
-    </label>
+    <% end %>
   </div>
-<% end %>
 </div>
-
-<br>
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>
-
-

@@ -47,3 +47,5 @@ question_3 = Question.create!(
 
 Alternative.create!(content: "5", is_correct: true, question_id: question_3.id)
 Alternative.create!(content: "7", is_correct: false, question_id: question_3.id)
+
+question_7 = Question.create!(content: "Sabendo-se que as medidas dos lados de dois quadrados são números naturais e que a diferença entre suas áreas é 60, um possível valor da soma de seus perímetros é:", lesson: 1, classroom_id: 1, user_id: 2, released_at: DateTime.now)
