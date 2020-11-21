@@ -5,6 +5,10 @@ class ClassroomPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def index?
     true
   end

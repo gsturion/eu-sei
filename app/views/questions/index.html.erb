@@ -5,8 +5,9 @@
   <% else %>
     <% @current_user_questions.each do |question| %>
       <div class="overflow-auto" style="max-width: 280px; max-height: 400px;">
-        <ul><%= "Aula#{question.lesson}: #{question.content}" %>
+        <ul><%= "Aula #{question.lesson}: #{question.content}" %>
         <%= link_to "Enviar", send_question_path(question), method: :patch , class: "btn btn-link"  %></ul>
       </div>
     <% end %>
+  <% end %>
 </div>
