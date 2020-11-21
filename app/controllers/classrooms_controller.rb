@@ -1,6 +1,6 @@
 class ClassroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_classroom, only: [ :feed, :dashboard ]
+  before_action :set_classroom, only: [ :feed, :dashboard, :show ]
 
   def index
     @classrooms = policy_scope(Classroom)
@@ -20,6 +20,10 @@ class ClassroomsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    authorize @classroom
   end
 
   def feed

@@ -1,4 +1,5 @@
 <h1 class="container">Hello World</h1>
-
-<%= link_to "Login", user_session_path, class: "btn btn-dark" %>
-<%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete%>
+ <%# todo listar classrooms %>
+<div class="mb-5"><%= link_to "#{@classrooms.first.name}", classroom_path(@classrooms.first)%></div>
+<div class="mb-5"><%= link_to "Login", user_session_path, class: "btn btn-dark" %></div>
+<div class="mb-5"><%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete%></div>
