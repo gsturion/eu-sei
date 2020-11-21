@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
     else
       @questions = policy_scope(Question)
     end
+    @current_user_questions = policy_scope(Question).joins(:user).where("users.id =?", current_user.id)
   end
 
   def new
