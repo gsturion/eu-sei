@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = policy_scope(Question)
+    @current_user_questios = policy_scope(Question).joins(:user).where("users.id =?", current_user.id)
   end
 
   def new
