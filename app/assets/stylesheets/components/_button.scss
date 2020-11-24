@@ -1,6 +1,10 @@
+.btn {
+  text-decoration: none;
+}
+
 .btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: white;
+  border: 2px solid white;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -44,6 +48,14 @@
 }
 
 .btn-home {
+  position: relative;
+  bottom: -124px;
+  left: 0px;
+
+}
+
+
+.btn-down {
   position: relative;
   bottom: -124px;
   left: 0px;

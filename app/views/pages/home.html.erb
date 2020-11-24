@@ -3,10 +3,12 @@
     <div class="pt-5 mt-5">
       <h1 class="text-right">Lorem ipsum</h1>
       <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <div class="btn btn-flat rounded float-right btn-home">
+      <div class="btn btn-ghost rounded float-right btn-home mt-3 ">
         <%= link_to "Acessar", user_session_path %>
       </div>
+
        <div class="btn btn-flat rounded float-right btn-home">
+
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </div>
     </div>
@@ -63,13 +65,14 @@
   </div>
 </div>
 
+
 <div class="blackbox">
   <div  class="container pt-5">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4 whitebox">
-      <form class="text-center border border-light p-5" action="#!">
+    <div class="col-xs-12 col-sm-6 whitebox">
+      <form class="text-center" action="#!">
 
-          <p class="h4 mb-4">Contact us</p>
+          <p class="h4 mb-4 ptext">Contact us</p>
 
           <!-- Name -->
           <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
@@ -95,14 +98,15 @@
           <!-- Copy -->
           <div class="custom-control custom-checkbox mb-4">
               <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-              <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+
           </div>
 
           <!-- Send button -->
-          <button class="btn btn-info btn-block" type="submit">Send</button>
+          <button class="form-actions btn btn-flat btn-block"" type="submit">Send</button>
 
       </form>
     </div>
   </div>
 </div>
 </div>
+
