@@ -5,11 +5,19 @@ class ClassroomPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def index?
     true
   end
 
   def feed?
+    true
+  end
+
+  def dashboard?
     true
   end
 end
