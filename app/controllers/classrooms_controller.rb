@@ -34,7 +34,7 @@ class ClassroomsController < ApplicationController
 
   def dashboard
     authorize @classroom
-    
+    @students = User.all.where(classroom_id: @classroom.id, is_teacher: false)
   end
 
   private
