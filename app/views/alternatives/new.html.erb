@@ -1,4 +1,4 @@
-<h1>Crie as respostas para a pergunta <%= @question.content %></h1>
+<h4>Crie as alternativas para a pergunta <%= @question.content %></h4>
 
 <%= simple_form_for [@question, @alternative] do |f|%>
 
@@ -9,5 +9,5 @@
 <% end %>
 
 <p>
-  <%= link_to 'Sair', question_path(@question) %>
+  <%= link_to 'Finalizar', question_path(@question) %>
 </p>

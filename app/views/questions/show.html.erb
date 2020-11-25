@@ -1,0 +1,10 @@
+<p>Pegunta:</p>
+    <p><%= @question.content %></p>
+
+<p>Alternativas:</p>
+  <% @question.alternatives.each do |alternative| %></p>
+    <li><%= alternative.content %></li>
+  <% end %>
+
+<p><%= link_to 'Editar', "#"%></p>
+<p><%= link_to 'Criar outra questão', "#" %></p>
