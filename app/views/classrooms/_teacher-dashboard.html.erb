@@ -2,7 +2,7 @@
 <ul>
   <% @students.each do |student| %>
     <li>
-      <%= student.name %>
+      <%= "#{student.name} - #{student.corrects}/#{student.answered}" %>
     </li>
   <% end %>  
 </ul>
