@@ -1,5 +1,11 @@
-<h1 class="container">Hello World</h1>
- <%# todo listar classrooms %>
-<div class="mb-5"><%= link_to "#{@classrooms.first.year}º#{@classrooms.first.name}", classroom_path(@classrooms.first)%></div>
-<div class="mb-5"><%= link_to "Login", user_session_path, class: "btn btn-dark" %></div>
-<div class="mb-5"><%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete%></div>
+<div  class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <h1 class="container">Hello World</h1>
+        <%# todo listar classrooms %>
+        <div class="mb-5"><%= link_to "#{@classrooms.first.year}º#{@classrooms.first.name}", classroom_path(@classrooms.first)%></div>
+        <div class="mb-5"><%= link_to "Login", user_session_path, class: "btn btn-dark" %></div>
+        <div class="mb-5"><%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete%></div>
+    </div>
+  </div>
+</div>
