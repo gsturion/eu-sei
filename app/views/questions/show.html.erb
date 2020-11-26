@@ -1,0 +1,21 @@
+<div  class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <p>Pegunta:</p>
+        <strong><p><%= @question.content %></p></strong>
+
+      <p>Alternativas:</p>
+        <% @question.alternatives.each do |alternative| %></p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                <%= alternative.content %>
+              </label>
+          </div>
+        <% end %>
+
+    <p><%= link_to 'Editar', edit_classroom_question_path(@question) %></p>
+    </div>
+  </div>
+</div>
+
