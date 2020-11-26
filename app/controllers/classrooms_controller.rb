@@ -1,6 +1,6 @@
 class ClassroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_classroom, only: [ :feed, :dashboard, :show ]
+  before_action :set_classroom, only: [ :feed, :dashboard, :show, :score ]
 
   def index
     @classrooms = policy_scope(Classroom)
@@ -34,10 +34,15 @@ class ClassroomsController < ApplicationController
 
   def dashboard
     authorize @classroom
-    
+    @students = User.where(classroom_id: @classroom.id, is_teacher: false)
   end
 
   private
+
+  def score
+    authorize @classroom
+    @answers = Answers.all
+  end
 
   def set_classroom
     @classroom = Classroom.find(params[:id])
