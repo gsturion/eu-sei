@@ -23,7 +23,7 @@ class User < ApplicationRecord
       SELECT count(*)
       FROM answers
       JOIN alternatives ON alternatives.id = answers.alternative_id
-      WHERE alternatives.is_correct = true
+      WHERE alternatives.is_correct = true AND answers.user_id = '#{self.id}'
     SQL
     corrects = ActiveRecord::Base.connection.execute(corrects).first["count"]
   end

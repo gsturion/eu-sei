@@ -32,6 +32,8 @@ gem 'pundit'
 
 gem 'devise'
 
+gem 'faker'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
