@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "classrooms/:id/dashboard", to: "classrooms#dashboard", as: :dashboard
   get "classrooms/:id/feed", to: "classrooms#feed", as: :feed
   post "alternatives/:id/answers", to: "answers#create", as: :create_answer
+  get "profile", to: "pages#profile"
 end
