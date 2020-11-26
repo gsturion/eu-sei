@@ -1,23 +1,26 @@
-<div class='container col-3 whitebox'>
+<div  class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
 
-  <h2 class="text-center mt-2 mb-2"> Turma: <%= @classroom.year%>º<%=@classroom.name %></h2>
-  <h4 class="text-center mt-2 mb-2"> Aguarde...</h4>
+      <h2 class="text-center mt-2 mb-2"> Turma: <%= @classroom.year%>º<%=@classroom.name %></h2>
+      <h4 class="text-center mt-2 mb-2"> Aguarde...</h4>
 
-    <% @classroom.questions.each do |question| %>
-      <% if not question.answered?(current_user) and question.can_be_displayed? %>
-        <div class="message-container" id="message-<%= question.id %>">
-          <p class="question"><%= question.content %></p>
-          <%= simple_form_for @answer, url: create_answer_path, remote: true do |f| %>
-            <%= f.input :alternative_id,
-                        as: :radio_buttons,
-                        label: "Resposta:",
-                        collection: question.alternatives,
-                        label_method: :content,
-                        value_method: :id %>
-            <%= f.submit "Enviar" %>
+        <% @classroom.questions.each do |question| %>
+          <% if not question.answered?(current_user) and question.can_be_displayed? %>
+            <div class="message-container" id="message-<%= question.id %>">
+              <p class="question"><%= question.content %></p>
+              <%= simple_form_for @answer, url: create_answer_path, remote: true do |f| %>
+                <%= f.input :alternative_id,
+                            as: :radio_buttons,
+                            label: "Resposta:",
+                            collection: question.alternatives,
+                            label_method: :content,
+                            value_method: :id %>
+                <%= f.submit "Enviar" %>
+              <% end %>
+            </div>
           <% end %>
-        </div>
-      <% end %>
-    <% end %>
+        <% end %>
+    </div>
   </div>
 </div>
