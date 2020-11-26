@@ -1,7 +1,7 @@
 <div  class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h4>Crie as alternativas para a pergunta <%= @question.content %></h4>
+      <h4 class="text-center mt-2 mb-2">Crie as alternativas para a pergunta <%= @question.content %></h4>
 
       <%= simple_form_for [@question, @alternative] do |f|%>
 

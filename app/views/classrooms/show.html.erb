@@ -1,7 +1,7 @@
 <div  class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h4>Turma <%= "#{@classroom.year}º#{@classroom.name}" %></h4>
+      <h4 class="text-center mt-2 mb-2">Turma <%= "#{@classroom.year}º#{@classroom.name}" %></h4>
       <%= link_to "Criar nova questão", new_classroom_question_path(@classroom) %>
     </div>
   </div>
