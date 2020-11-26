@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [ :show, :edit, :destroy, :send_question, :update ]
-  before_action :set_classroom, only: [ :create, :new, :update, :edit ]
+  before_action :set_classroom, only: [ :create, :new ]
 
   def index
     if params[:query].present?
@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
   def update
     authorize @question
     if @question.update(question_params)
-      redirect_to @question, notice: 'Questão atualizada com sucesso.'
+      redirect_to question_path, notice: 'Questão atualizada com sucesso.'
     else
       render :edit
     end
@@ -67,10 +67,11 @@ class QuestionsController < ApplicationController
 
   def set_classroom
     @classroom = Classroom.find(params[:classroom_id])
-    # classroom_id = 1
   end
 
   def question_params
-    params.require(:question).permit(:content, :lesson, :released_at)
+    params.require(:question).permit(:content, :lesson, :released_at, :classroom_id)
   end
 end
+
+
