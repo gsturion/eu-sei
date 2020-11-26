@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
   resources :classrooms, only: [ :show, :index ] do
-    resources :questions, only: [ :index, :new, :create ]
+    resources :questions, only: [ :index, :new, :create, :edit, :update ]
   end
 
   resources :questions  do
     resources :alternatives, only: [ :new, :create ]
   end
 
-  resources :questions, only: [ :show, :edit, :update, :destroy ]
+  resources :questions, only: [ :show, :destroy ]
   resources :alternatives, only: [ :edit, :delete ]
 
   patch "questions/:id/send", to: "questions#send_question", as: :send_question

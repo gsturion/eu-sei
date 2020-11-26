@@ -1,0 +1,8 @@
+<h4>Editar questão</h4>
+
+<%= form_for @question do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>
