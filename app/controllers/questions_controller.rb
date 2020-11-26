@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [ :show, :edit, :destroy, :send_question ]
-  before_action :set_classroom, only: [ :create, :new ]
+  before_action :set_question, only: [ :show, :edit, :destroy, :send_question, :update ]
+  before_action :set_classroom, only: [ :create, :new, :update ]
 
   def index
     if params[:query].present?
@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    authorize @question
   end
 
   def update
