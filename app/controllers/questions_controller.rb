@@ -66,8 +66,8 @@ class QuestionsController < ApplicationController
   end
 
   def set_classroom
-    # @classroom = Classroom.find(params[:classroom_id])
-    classroom_id = 1
+    @classroom = Classroom.find(params[:classroom_id])
+    # classroom_id = 1
   end
 
   def question_params
