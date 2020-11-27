@@ -67,3 +67,19 @@
   position: relative;
   bottom: 80px;
 }
+
+.btn-ghost-questions {
+  color: white;
+  border: 2px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  border-color: $salmon;
+  color: grey;
+}
+
+// .btn-flat-edit{
+//   height: 24px;
+// }

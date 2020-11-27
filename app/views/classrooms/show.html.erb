@@ -1,4 +1,3 @@
-
 <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">☰</button>
     <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -6,11 +5,14 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eu sei!</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+                    <% if current_user %>
+                <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
+
+                <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
+              <% else %>
+                <%= link_to "Login", user_session_path, class: "dropdown-item" %>
+                <%= link_to "Cadastre-se", new_user_registration_path, class: "dropdown-item" %>
+              <% end %>
                 </div>
             </li>
         </ul>
@@ -22,7 +24,7 @@
     <div class="col-xs-12 col-sm-4 whitebox">
       <h4 class="text-center mt-2 mb-2">Turma <%= "#{@classroom.year}º#{@classroom.name}" %></h4>
       <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5">
-      <%= link_to "Criar nova questão", new_classroom_question_path(@classroom), class: "text-white" %>
+      <%= link_to "Criar nova questão", new_classroom_question_path(@classroom), class: "text-white text-decoration-none" %>
     </div>
     </div>
   </div>

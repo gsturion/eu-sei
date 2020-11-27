@@ -1,8 +1,8 @@
-<p>Escolha um aluno</p>
+<p class="mt-2 mb-3">Alunos:</p>
 <ul>
   <% @students.each do |student| %>
-    <li>
+    <li class="mt-2 mb-3">
       <%= "#{student.name} - #{student.corrects}/#{student.answered}" %>
     </li>
-  <% end %>  
+  <% end %>
 </ul>
