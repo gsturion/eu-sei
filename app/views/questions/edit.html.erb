@@ -3,12 +3,19 @@
     <div class="col-xs-12 col-sm-4 whitebox">
       <h4 class="text-center mt-2 mb-2">Editar questão</h4>
 
-      <%= form_for @question do |f| %>
-        <%= f.label :content %>
-        <%= f.text_field :content %>
+      <%= render 'form' %>
 
-        <%= f.submit %>
+      <%= simple_form_for [@question, @alternative] do |f|%>
+
+        <%= f.input :content , label: "Escreva a alternativa" %>
+        <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+
       <% end %>
+
+      <p><%= link_to 'Finalizar', question_path(@question) %></p>
+      <p><%= link_to 'Criar nova questão' %></p>
+     
     </div>
   </div>
 </div>

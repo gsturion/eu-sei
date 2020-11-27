@@ -1,15 +1,17 @@
 <div  class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h4 class="text-center mt-2 mb-2">Crie as alternativas para a pergunta <%= @question.content %></h4>
+      <h4 class="text-center mt-2 mb-2">Crie as alternativas para a pergunta:</h4>
+      <div class="text-center mt-2 mb-2">
+      <strong><%= @question.content %></strong>
+      </div>
+        <%= simple_form_for [@question, @alternative] do |f|%>
 
-      <%= simple_form_for [@question, @alternative] do |f|%>
+          <%= f.input :content , label: "Escreva a alternativa" %>
+          <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
 
-        <%= f.input :content , label: "Escreva a alternativa" %>
-        <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-
-      <% end %>
+        <% end %>
 
       <p><%= link_to 'Finalizar', question_path(@question) %></p>
       <p><%= link_to 'Criar nova questão' %></p>
