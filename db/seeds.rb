@@ -1,6 +1,12 @@
 require 'faker'
 
 classroom = Classroom.create!(name: "A", year: 1)
+classroom2 = Classroom.create!(name: "A", year: 2)
+classroom3 = Classroom.create!(name: "A", year: 3)
+
+classroom4 = Classroom.create!(name: "B", year: 1)
+classroom5 = Classroom.create!(name: "B", year: 2)
+classroom6 = Classroom.create!(name: "B", year: 3)
 
 teacher = User.create!(
   classroom_id: classroom.id,

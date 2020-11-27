@@ -2,10 +2,11 @@
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
       <h4 class="text-center mt-2 mb-2">Salas de aula</h4>
-        <%# todo listar classrooms %>
-        <div class="mb-5"><%= link_to "#{@classrooms.first.year}º#{@classrooms.first.name}", classroom_path(@classrooms.first)%></div>
-        <div class="mb-5"><%= link_to "Login", user_session_path, class: "btn btn-dark" %></div>
-        <div class="mb-5"><%= link_to "Logout", destroy_user_session_path, class: "btn btn-dark", method: :delete%></div>
+        <ul>
+          <% @classrooms.each do |classroom| %> 
+            <li><%= link_to "#{classroom.year}º#{classroom.name}", classroom_path(classroom)%></li>
+          <% end %>
+        </ul>
     </div>
   </div>
 </div>
