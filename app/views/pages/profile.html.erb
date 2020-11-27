@@ -5,11 +5,14 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eu sei!</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+                    <% if current_user %>
+                <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
+
+                <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
+              <% else %>
+                <%= link_to "Login", user_session_path, class: "dropdown-item" %>
+                <%= link_to "Cadastre-se", new_user_registration_path, class: "dropdown-item" %>
+              <% end %>
                 </div>
             </li>
         </ul>
@@ -39,15 +42,15 @@
 
 </div>
 <div class=" d-flex justify-content-center">
-<%= link_to "Classroom", "#", class: "btn btn-flat" %>
+<%= link_to "Sala de Aula", classrooms_path, class: "btn btn-flat" %>
 </div>
 <div class="container d-flex justify-content-around pt-5 mb-5">
   <div class="col-10">
     <div class="cards-profile pt-3 mb-"3>
 
  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
-    Dashboard
-  </div>
+
+ </div>
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://miro.medium.com/max/3840/1*XQg3eidVdSb-KKMAIc_Frw.jpeg)">
     <%= link_to "Questions", questions_path, class: "text-white text-decoration-none" %>
