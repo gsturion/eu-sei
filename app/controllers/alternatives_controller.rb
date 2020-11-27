@@ -19,7 +19,6 @@ class AlternativesController < ApplicationController
     @question.classroom
     authorize @alternative
 
-
     if @alternative.save
       redirect_to new_question_alternative_path(@question), notice: 'Alternativa criada com sucesso.'
     else
@@ -28,6 +27,7 @@ class AlternativesController < ApplicationController
   end
 
   def update
+    #authorize @alternative
     if @alternative.update(alternative_params)
       redirect_to @alternative, notice: 'Alternativa atualizada com sucesso.'
     else
@@ -50,7 +50,7 @@ class AlternativesController < ApplicationController
   end
 
   def alternative_params
-    params.require(:alternative).permit(:content, :is_correct)
+    params.require(:alternative).permit(:content, :is_correct, :question_id)
   end
 
 end
