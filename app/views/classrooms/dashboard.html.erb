@@ -1,27 +1,10 @@
-<h1>Dashboard</h1>
+<div  class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <h1>Dashboard</h1>
 
-<p>Escolha uma Matéria</p>
-
-<%= form_tag questions_path, method: :get do %>
-  <%= hidden_field_tag :query,
-    'matematica',
-    class: "hidden"
-  %>
-  <%= submit_tag "Matematica", class: "btn btn-light" %>
-<% end %>
-
-<%= form_tag questions_path, method: :get do %>
-  <%= hidden_field_tag :query,
-    'portugues',
-    class: "hidden"
-  %>
-  <%= submit_tag "Portugues", class: "btn btn-light" %>
-<% end %>
-
-<%= form_tag questions_path, method: :get do %>
-  <%= hidden_field_tag :query,
-    'historia',
-    class: "hidden"
-  %>
-  <%= submit_tag "Historia", class: "btn btn-light" %>
+<% if current_user.is_teacher %>
+  <%= render 'teacher-dashboard' %>
+<% else %>
+  <%= render 'student-dashboard' %>
 <% end %>

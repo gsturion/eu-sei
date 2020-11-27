@@ -1,0 +1,8 @@
+<p>Escolha um aluno</p>
+<ul>
+  <% @students.each do |student| %>
+    <li>
+      <%= "#{student.name} - #{student.corrects}/#{student.answered}" %>
+    </li>
+  <% end %>  
+</ul>
