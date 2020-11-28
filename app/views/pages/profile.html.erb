@@ -7,8 +7,11 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <% if current_user %>
                 <%= link_to "Perfil", profile_path, class: "dropdown-item" %>
-                <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
-
+                <% if current_user.is_teacher %>
+                  <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to "Sala de aula", feed_path(@classroom), class: "dropdown-item" %>
+                <% end %>
                 <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
               <% else %>
                 <%= link_to "Login", user_session_path, class: "dropdown-item" %>
@@ -43,14 +46,18 @@
 
 </div>
 <div class=" d-flex justify-content-center">
-<%= link_to "Sala de Aula", classrooms_path, class: "btn btn-flat" %>
+  <% if current_user.is_teacher %>
+      <%= link_to "Salas de Aula", classrooms_path, class: "btn btn-flat" %>
+    <% else %>
+      <%= link_to "Sala de aula", feed_path(@classroom), class: "btn btn-flat" %>
+    <% end %>
 </div>
 <div class="container d-flex justify-content-around pt-5 mb-5">
   <div class="col-10">
     <div class="cards-profile pt-3 mb-"3>
 
  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
-
+    <%= link_to "Dashboard", dashboard_path(@classroom), class: "text-white text-decoration-none" %>
  </div>
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://miro.medium.com/max/3840/1*XQg3eidVdSb-KKMAIc_Frw.jpeg)">
