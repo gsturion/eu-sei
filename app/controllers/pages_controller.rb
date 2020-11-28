@@ -7,6 +7,6 @@ class PagesController < ApplicationController
     end
 
     def profile
-      @classroom = Classroom.find(current)
+      @classroom = Classroom.find(1)
     end
 end
