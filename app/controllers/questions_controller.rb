@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
 
   def edit
     authorize @question
+    #authorize @alternative
   end
 
   def update
