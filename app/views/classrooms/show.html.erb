@@ -27,5 +27,13 @@
       <%= link_to "Criar nova questão", new_classroom_question_path(@classroom), class: "text-white text-decoration-none" %>
     </div>
     </div>
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <h4 class="text-center mt-2 mb-2">Questões</h4>
+        <% @questions.each do |q| %>
+          <ol class="list-group">
+            <li class="list-group-item"><%= q.content %></li>
+          </ol>
+        <% end %>
+    </div>
   </div>
 </div>

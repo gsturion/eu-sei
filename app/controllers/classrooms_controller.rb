@@ -24,6 +24,7 @@ class ClassroomsController < ApplicationController
 
   def show
     authorize @classroom
+    @questions = Question.where(classroom_id: @classroom.id)
   end
 
   def feed
@@ -38,11 +39,6 @@ class ClassroomsController < ApplicationController
   end
 
   private
-
-  def score
-    authorize @classroom
-    @answers = Answers.all
-  end
 
   def set_classroom
     @classroom = Classroom.find(params[:id])
