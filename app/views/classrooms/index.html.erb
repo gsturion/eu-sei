@@ -6,6 +6,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eu sei!</a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <% if current_user %>
+                <%= link_to "Perfil", profile_path, class: "dropdown-item" %>
                 <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
 
                 <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>

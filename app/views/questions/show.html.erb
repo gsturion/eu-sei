@@ -6,6 +6,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eu sei!</a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <% if current_user %>
+                <%= link_to "Perfil", profile_path, class: "dropdown-item" %>
                 <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
 
                 <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
@@ -36,7 +37,10 @@
         <% end %>
 
     <div class=" btn btn-flat btn-block mt-5 mb-4"><%= link_to 'Editar', edit_classroom_question_path(@question), class: "text-white" %></div>
+     <div class=" btn btn-flat btn-block mt-5 mb-4"><%= link_to 'Perfil', profile_path, class: "text-white" %></div>
     </div>
+    </div>
+
   </div>
 </div>
 
