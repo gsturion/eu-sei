@@ -6,3 +6,22 @@
     </li>
   <% end %>
 </ul>
+<!-- Layout de tabela
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">Aluno</th>
+      <th scope="col">Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <th scope="row"><%= student.name %></th>
+        <td><%="#{student.corrects}/#{student.answered}"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+-->
