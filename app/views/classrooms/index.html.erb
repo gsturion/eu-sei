@@ -25,7 +25,7 @@
       <h4 class="text-center mt-2 mb-2">Salas de aula</h4>
 
           <% @classrooms.each do |classroom| %>
-            <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5"><%= link_to "#{classroom.year}º#{classroom.name}", classroom_path(classroom)%></div>
+            <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5"><%= link_to "#{classroom.year}º#{classroom.name}", classroom_path(classroom), class: "text-white text-decoration-none"%></div>
           <% end %>
 
 
