@@ -7,9 +7,6 @@
       </div>
         <%= simple_form_for [@question, @alternative] do |f|%>
 
-          <%= f.input :content , label: "Escreva a alternativa" %>
-          <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
-          <%= f.button :submit, class: 'btn btn-primary' %>
 
         <%= f.input :content , label: "Escreva a alternativa" %>
         <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
