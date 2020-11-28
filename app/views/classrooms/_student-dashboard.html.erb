@@ -1,4 +1,4 @@
-<p class=" text-center mt-2 mb-3">Escolha uma Matéria:</p>
+<!-- <p class=" text-center mt-2 mb-3">Escolha uma Matéria:</p> -->
 <!--
 <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5">
   <%= form_tag questions_path, method: :get do %>
@@ -29,17 +29,22 @@
   <% end %>
 </div>
 -->
-<ul>
+
   <% @answers.each do |answer| %>
-    <li class="mt-2 mb-3">
-      <%= answer.alternative.question.content %>
+    <div class="mt-2 mb-3 ">
+      <div class=" text-center mb-3">
+        <%= answer.alternative.question.content %>
+      </div>
+      <div class="text-center">
       <% if answer.alternative.is_correct %>
-        <p>Certa resposta!</p>
-        <%= answer.alternative.content %>
-      <% else %>
-        <p>Erroooooooooou!</p>
-        <%= answer.alternative.content %>
+        <i class="far fa-check-circle"></i>
+<!--         <%= answer.alternative.content %>
+ -->      <% else %>
+        <i class="far fa-times-circle"></i>
+      </div>
       <% end %>
-    </li>
+       <!-- <div>
+        <%= answer.alternative.content %>
+      </div> -->
+
   <% end %>
-</ul>

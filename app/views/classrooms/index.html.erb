@@ -23,11 +23,11 @@
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
       <h4 class="text-center mt-2 mb-2">Salas de aula</h4>
-        <ul>
-          <% @classrooms.each do |classroom| %> 
-            <li><%= link_to "#{classroom.year}º#{classroom.name}", classroom_path(classroom)%></li>
+
+          <% @classrooms.each do |classroom| %>
+            <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5"><%= link_to "#{classroom.year}º#{classroom.name}", classroom_path(classroom)%></div>
           <% end %>
-        </ul>
+
 
     </div>
   </div>
