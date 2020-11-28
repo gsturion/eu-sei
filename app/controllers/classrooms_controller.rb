@@ -36,6 +36,7 @@ class ClassroomsController < ApplicationController
   def dashboard
     authorize @classroom
     @students = User.where(classroom_id: @classroom.id, is_teacher: false)
+    @answers = Answer.where(user_id: current_user.id)
   end
 
   private

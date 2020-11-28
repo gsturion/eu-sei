@@ -1,30 +1,45 @@
 <p class=" text-center mt-2 mb-3">Escolha uma Matéria:</p>
 
 <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5">
-<%= form_tag questions_path, method: :get do %>
-  <%= hidden_field_tag :query,
-    'matematica',
-    class: "hidden"
-  %>
-  <%= submit_tag "Matematica", class: "btn btn-flat " %>
-<% end %>
+  <%= form_tag questions_path, method: :get do %>
+    <%= hidden_field_tag :query,
+      'matematica',
+      class: "hidden"
+    %>
+    <%= submit_tag "Matematica", class: "btn btn-flat " %>
+  <% end %>
 </div>
 
 <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5">
-<%= form_tag questions_path, method: :get do %>
-  <%= hidden_field_tag :query,
-    'portugues',
-    class: "hidden"
-  %>
-  <%= submit_tag "Portugues", class: "btn btn-flat " %>
-<% end %>
+  <%= form_tag questions_path, method: :get do %>
+    <%= hidden_field_tag :query,
+      'portugues',
+      class: "hidden"
+    %>
+    <%= submit_tag "Portugues", class: "btn btn-flat " %>
+  <% end %>
 </div>
 <div class="btn btn-flat d-flex justify-content-center mt-5 mb-5">
-<%= form_tag questions_path, method: :get do %>
-  <%= hidden_field_tag :query,
-    'historia',
-    class: "hidden"
-  %>
-  <%= submit_tag "Historia", class: "btn btn-flat " %>
-<% end %>
+  <%= form_tag questions_path, method: :get do %>
+    <%= hidden_field_tag :query,
+      'historia',
+      class: "hidden"
+    %>
+    <%= submit_tag "Historia", class: "btn btn-flat " %>
+  <% end %>
 </div>
+
+<ul>
+  <% @answers.each do |answer| %>
+    <li class="mt-2 mb-3">
+      <%= answer.alternative.question.content %>
+      <% if answer.alternative.is_correct %>
+        <p>Certa resposta!</p>
+        <%= answer.alternative.content %>
+      <% else %>
+        <p>Erroooooooooou!</p>
+        <%= answer.alternative.content %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
