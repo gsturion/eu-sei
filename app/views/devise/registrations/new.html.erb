@@ -8,31 +8,36 @@
 
           <div class="form-inputs">
             <%= f.input :email,
+                        label: 'Seu e-mail',
                         required: true,
                         autofocus: true,
                         wrapper_html: { class: 'formtext' },
-                        input_html: { autocomplete: "email" }%>,
+                        input_html: { autocomplete: "email" }%>
             <%= f.input :classroom_id,
+                        label: 'Sala de aula',
                         collection: Classroom.all.map{ |c| [ "#{c.year}-#{c.name}", c.id ] } %>
             <%= f.input :is_teacher,
+                        label: 'Sou professor',
                         as: :boolean %>            
             <%= f.input :password,
+                        label: 'Escolha sua senha',
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         wrapper_html: { class: 'formtext' },
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
+                        label: 'Confirme sua senha',
                         required: true,
                         wrapper_html: { class: 'formtext' },
                         input_html: { autocomplete: "new-password" } %>
           </div>
 
           <div class="form-actions btn btn-flat btn-block">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "Cadastrar" %>
           </div>
         <% end %>
         <div class="d-flex justify-content-center my-3">
-          <%= link_to "Log in", new_session_path(resource_name) %>
+          <%= link_to "Entrar", new_session_path(resource_name) %>
         </div>
     </div>
   </div>
