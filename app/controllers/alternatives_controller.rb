@@ -1,5 +1,6 @@
 class AlternativesController < ApplicationController
   before_action :set_question, only: [:new, :create, :update, :destroy]
+  before_action :set_alternative, only: [:edit, :update, :destroy]
 
   def new
     @alternative = Alternative.new
@@ -11,6 +12,7 @@ class AlternativesController < ApplicationController
   end
 
   def edit
+    authorize @alternative
   end
 
   def create
@@ -27,7 +29,7 @@ class AlternativesController < ApplicationController
   end
 
   def update
-    #authorize @alternative
+    authorize @alternative
     if @alternative.update(alternative_params)
       redirect_to @alternative, notice: 'Alternativa atualizada com sucesso.'
     else
@@ -44,6 +46,10 @@ class AlternativesController < ApplicationController
   end
 
   private
+
+  def set_alternative
+    @alternative = Alternative.find(params[:id])
+  end
 
   def set_question
     @question = Question.find(params[:question_id])
