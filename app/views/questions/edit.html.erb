@@ -26,9 +26,9 @@
 
       <div class="mb-4">
       <%= simple_form_for @question do |f| %>
-        <%= f.label :content %>
+        <%= f.label :content, label: 'Você pode alterar sua questão aqui:' %>
         <%= f.text_field :content %>
-      <div class=" btn btn-flat btn-block mt-5 mb-5">
+      <div class=" btn btn-flat btn-block mt-5 mb-5 ">
         <%= f.button :submit, "Editar" %>
       </div>
       <% end %>

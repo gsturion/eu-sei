@@ -1,6 +1,6 @@
 <%= simple_form_for [@classroom, @question] do |f| %>
-  <%= f.input :lesson %>
-  <%= f.input :content %>
-  <%= f.input :released_at, include_blank: true %>
+  <%= f.input :lesson, label: 'Essa questão é para a aula:' %>
+  <%= f.input :content, label: 'Escreva a nova questão:' %>
+  <%= f.input :released_at, include_blank: true, label: 'Escolha o horário de envio:'%>
   <%= f.submit "Criar questão", class: "btn btn-flat btn-block mt-5 mb-5" %>
 <% end %>
