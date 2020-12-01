@@ -17,8 +17,10 @@
                         label: 'Sala de aula',
                         collection: Classroom.all.map{ |c| [ "#{c.year}-#{c.name}", c.id ] } %>
             <%= f.input :is_teacher,
+
                         label: 'Sou professor',
                         as: :boolean %>            
+
             <%= f.input :password,
                         label: 'Escolha sua senha',
                         required: true,

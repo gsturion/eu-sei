@@ -63,10 +63,7 @@
   color: white;
 }
 
-.btn-profile-midle{
-  position: relative;
-  bottom: 80px;
-}
+
 
 .btn-ghost-questions {
   color: white;
@@ -121,4 +118,32 @@
 .fa-edit:hover {
   color: $strong-turquoise;
 
+}
+
+// @media(max-width: 576px) {
+//   .btn-profile{
+//     margin-top: ;
+//   }
+// }
+
+// @media(max-width: 768px) {
+//   .btn-profile {
+//      margin-top: ;
+//   }
+// }
+
+// @media(max-width: 992px ) {
+//   .btn-profile {
+//      margin-top: ;
+//   }
+// }
+
+// @media(max-width: 1200px) {
+//   .btn-profile {
+//      margin-top: ;
+//   }
+// }
+.btn-profile{
+      position: relative;
+    top: -15px;
 }
