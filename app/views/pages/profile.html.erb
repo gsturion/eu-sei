@@ -22,48 +22,49 @@
         </ul>
     </div>
 </nav>
-<div class="banner-profile mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-  <div class="container ">
-    <div class="pt-5 mt-5">
+<div class="banner-profile  pb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+  <div class="pt-5 mt-5">
       <i class="fas fa-user-circle d-flex justify-content-center mt-3 mb-4"></i>
-      <h3 class="d-flex justify-content-center mt-3 text-white">
-        <%= current_user.name %>
-      </h3>
-      <h4 class="d-flex justify-content-center mt-3 text-white">
-        <%= current_user.email %>
-      </h4>
-      <h4 class="d-flex justify-content-center mt-3 mb-3 text-white">
-        <%= current_user.subject %>
-      </h4>
+        <h3 class="d-flex justify-content-center mt-3 text-white">
+          <%= current_user.name %>
+        </h3>
+        <h4 class="d-flex justify-content-center mt-3 text-white">
+          <%= current_user.email %>
+        </h4>
+        <h4 class="d-flex justify-content-center mt-3 mb-3 text-white">
+          <%= current_user.subject %>
+        </h4>
 
-      </div>
+        <div class=" d-flex justify-content-center mb-5">
+          <%= link_to "editar?", edit_user_registration_path, class: "text-white" %>
+        </div>
 
-<div class=" d-flex justify-content-center mb-5">
-  <%= link_to "editar?", edit_user_registration_path, class: "text-white" %>
+
+    </div>
+
 </div>
 
-
-
-</div>
-<div class=" d-flex justify-content-center">
-  <% if current_user.is_teacher %>
-      <%= link_to "Salas de Aula", classrooms_path, class: "btn btn-flat" %>
+  <div class=" d-flex justify-content-center">
+    <% if current_user.is_teacher %>
+      <%= link_to "Salas de Aula", classrooms_path, class: "btn btn-flat btn-profile" %>
     <% else %>
-      <%= link_to "Sala de aula", feed_path(@classroom), class: "btn btn-flat" %>
+      <%= link_to "Sala de aula", feed_path(@classroom), class: "btn btn-flat btn-profile" %>
     <% end %>
-</div>
+  </div>
+
+
+
 <div class="container d-flex justify-content-around pt-5 mb-5">
   <div class="col-10">
     <div class="cards-profile pt-3 mb-"3>
 
- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
-    <%= link_to "Dashboard", dashboard_path(@classroom), class: "text-white text-decoration-none" %>
- </div>
-
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://miro.medium.com/max/3840/1*XQg3eidVdSb-KKMAIc_Frw.jpeg)">
-    <%= link_to "Questions", questions_path, class: "text-white text-decoration-none" %>
+    <%= link_to "Questões", questions_path, class: "text-white text-decoration-none" %>
   </div>
 
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
+    <%= link_to "Resultados", dashboard_path(@classroom), class: "text-white text-decoration-none" %>
+ </div>
 
     </div>
   </div>
