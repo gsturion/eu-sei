@@ -25,7 +25,7 @@
       <h4 class="text-center mt-2 mb-2">Crie as alternativas para a pergunta:</h4>
       <div class="text-center mt-2 mb-2">
         </div>
-          <%= simple_form_for @alternative, :url => edit_alternative_path do |f|%>
+          <%= simple_form_for @alternative do |f|%>
           <!--
                     <%= f.input :content , label: "Escreva a alternativa" %>
                     <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>

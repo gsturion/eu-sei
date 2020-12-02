@@ -28,7 +28,7 @@
       <% else %>
         <div>
         <% @current_user_questions.each do |question| %>
-          <ul class="d-flex justify-content-between mb-4 pl-0"><%= "Aula #{question.lesson}: #{question.content}" %>
+          <ul class="d-flex justify-content-between mb-4 pl-0"><%= link_to  "Aula #{question.lesson}: #{question.content}", question_path(question)%>
           <%= link_to "Enviar", send_question_path(question), method: :patch , class: "btn btn-flat "  %></ul>
         <% end %>
         </div>

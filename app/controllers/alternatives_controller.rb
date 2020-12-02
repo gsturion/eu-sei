@@ -1,5 +1,5 @@
 class AlternativesController < ApplicationController
-  before_action :set_question, only: [:new, :create, :update, :destroy]
+  before_action :set_question, only: [:new, :create, :destroy]
   before_action :set_alternative, only: [:edit, :update, :destroy]
 
   def new
@@ -31,7 +31,7 @@ class AlternativesController < ApplicationController
   def update
     authorize @alternative
     if @alternative.update(alternative_params)
-      redirect_to @alternative, notice: 'Alternativa atualizada com sucesso.'
+      redirect_to @alternative.question, notice: 'Alternativa atualizada com sucesso.'
     else
       render :edit
     end
