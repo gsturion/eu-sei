@@ -48,8 +48,19 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy
-    redirect_to questions_url, notice: 'Questão excluída com sucesso.'
+    authorize @question
+    @answer = Answer.all
+    @alternative = Alternative.all
+    @user = User.all
+
+    # if question has a answer
+    if @question.released_at != nil
+      # notice: 'Essa questão não pode ser excluída'
+      redirect_to question_path, notice: 'Essa questão não pode ser excluída'
+    else
+      @question.destroy
+      redirect_to questions_url, notice: 'Questão excluída com sucesso.'
+    end
   end
 
   def send_question
