@@ -1,42 +1,38 @@
 <div  class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h2 class="text-center mt-2 mb-5">eu-sei!</h2>
-
+      <h2 class="text-center mt-2 mb-5">Eu-sei!</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :email,
-                        label: 'Seu e-mail',
-                        required: true,
-                        autofocus: true,
-                        wrapper_html: { class: 'formtext' },
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :classroom_id,
-                        label: 'Sala de aula',
-                        collection: Classroom.all.map{ |c| [ "#{c.year}-#{c.name}", c.id ] } %>
-            <%= f.input :is_teacher,
-
-                        label: 'Sou professor',
-                        as: :boolean %>            
-
-            <%= f.input :password,
-                        label: 'Escolha sua senha',
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        wrapper_html: { class: 'formtext' },
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        label: 'Confirme sua senha',
-                        required: true,
-                        wrapper_html: { class: 'formtext' },
-                        input_html: { autocomplete: "new-password" } %>
-          </div>
-
-          <div class="form-actions btn btn-flat btn-block">
-            <%= f.button :submit, "Cadastrar" %>
-          </div>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      label: 'Seu e-mail',
+                      required: true,
+                      autofocus: true,
+                      wrapper_html: { class: 'formtext' },
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :classroom_id,
+                      label: 'Sala de aula',
+                      collection: Classroom.all.map{ |c| [ "#{c.year}-#{c.name}", c.id ] } %>
+          <%= f.input :is_teacher,
+                      label: 'Sou professor',
+                      as: :boolean %>            
+          <%= f.input :photo, label: 'Escolha uma foto', as: :file %>
+          <%= f.input :password,
+                      label: 'Escolha sua senha',
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      wrapper_html: { class: 'formtext' },
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      label: 'Confirme sua senha',
+                      required: true,
+                      wrapper_html: { class: 'formtext' },
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-actions btn btn-flat btn-block">
+          <%= f.button :submit, "Cadastrar" %>
+        </div>
         <% end %>
         <div class="d-flex justify-content-center my-3">
           <%= link_to "Entrar", new_session_path(resource_name) %>
@@ -44,4 +40,3 @@
     </div>
   </div>
 </div>
-
