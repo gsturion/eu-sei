@@ -10,11 +10,11 @@ class AlternativePolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.is_teacher
   end
 
   def create?
-    true
+    user.is_teacher
   end
 
   def show?
@@ -22,14 +22,14 @@ class AlternativePolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    record.question.user == user
   end
 
   def update?
-    true
+    record.question.user == user
   end
 
   def destroy?
-    true
+    record.question.user == user
   end
 end

@@ -28,7 +28,7 @@
       <% else %>
         <div>
         <% @current_user_questions.each do |question| %>
-          <div class="d-flex justify-content-between mb-4 pl-0"><%= "Aula #{question.lesson}: #{question.content}" %>
+          <div class="d-flex justify-content-between mb-4 pl-0"><%= link_to  "Aula #{question.lesson}: #{question.content}", question_path(question)%>
           <div class="d-flex justify-content-end">
             <%= link_to "", send_question_path(question), method: :patch , class: "far fa-paper-plane  text-decoration-none pr-3" %>
             <%= link_to "", edit_question_path(question), method: :get , class: "far fa-edit  text-decoration-none pr-3" %>
