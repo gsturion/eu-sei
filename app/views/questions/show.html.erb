@@ -21,16 +21,16 @@
 <div class="container mt-5 pt-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h4 class="text-center mt-2 mb-5">Questão Criada</h4>
-      <p>Pegunta:</p>
+      <h4 class="text-center mt-2 mb-5">Questão criada com sucesso!</h4>
+      <p>Clique na pergunta para editar:</p>
         <strong><p class="mb-5"><%= @question.content %></p></strong>
-        <p class="" >Alternativas:</p>
+      <p>Clique na alternativa para editar:</p>
         <% @question.alternatives.each do |alternative| %></p>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-              <label class="form-check-label" for="exampleRadios1">
-                <%= link_to "#{alternative.content}", edit_alternative_path(alternative) %>
-              </label>
+            <label class="form-check-label" for="exampleRadios1">
+              <%= link_to "#{alternative.content}", edit_alternative_path(alternative) %>
+            </label>
           </div>
         <% end %>
         <div class=" btn btn-flat btn-block mt-5 mb-4"><%= link_to 'Editar', edit_classroom_question_path(@question), class: "text-white" %></div>
