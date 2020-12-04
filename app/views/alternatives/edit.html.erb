@@ -18,3 +18,25 @@
     </ul>
   </div>
 </nav>
+<div  class="container pt-5 mt-5 mb-4">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <h4 class="text-center mt-2 mb-2">Crie as alternativas para a pergunta:</h4>
+      <div class="text-center mt-2 mb-2">
+        </div>
+          <%= simple_form_for @alternative do |f|%>
+          <!--
+                    <%= f.input :content , label: "Escreva a alternativa" %>
+                    <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
+                    <%= f.button :submit, class: 'btn btn-flat btn-block mt-4 mb-4' %>
+          -->
+                  <%= f.input :content , label: "Escreva a alternativa" %>
+                  <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
+                  <%= f.button :submit, class: 'btn btn-flat btn-block mt-4 mb-4' %>
+
+                <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

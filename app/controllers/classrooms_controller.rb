@@ -31,6 +31,7 @@ class ClassroomsController < ApplicationController
     authorize @classroom
     @alternative = Alternative.new
     @answer = Answer.new
+    @display = @classroom.questions.select{ |q| q.can_be_displayed? && !q.answered?(current_user) }
   end
 
   def dashboard
