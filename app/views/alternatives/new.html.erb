@@ -33,6 +33,7 @@
 -->
         <%= f.input :content , label: "Escreva a alternativa" %>
         <%= f.input :is_correct, as: :radio_buttons, label: "Essa alternativa é a correta?" %>
+        <%= f.submit "Criar alternativa", class: "btn btn-flat btn-block mt-5 mb-5" %>
       <% end %>
       <div class="d-flex justify-content-between mt-3 mb-4">
         <p><%= link_to 'Finalizar', question_path(@question) %></p>
