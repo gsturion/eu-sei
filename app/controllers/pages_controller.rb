@@ -2,17 +2,11 @@ class PagesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :home
 
-    def home
+  def home
 
-    end
+  end
 
-    def profile
-      @classroom = Classroom.find(classroom_params)
-    end
-
-    private
-
-    def classroom_params
-      params.require(:classroom).permit(:id)
-    end
+  def profile
+    @classroom = current_user.classroom
+  end
 end
