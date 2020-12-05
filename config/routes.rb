@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   get "classrooms/:id/feed", to: "classrooms#feed", as: :feed
   post "alternatives/:id/answers", to: "answers#create", as: :create_answer
   get "profile", to: "pages#profile"
+  
+  resources :chatrooms, only: :show
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end

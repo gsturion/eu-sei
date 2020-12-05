@@ -8,6 +8,8 @@ classroom4 = Classroom.create!(name: "B", year: 1)
 classroom5 = Classroom.create!(name: "B", year: 2)
 classroom6 = Classroom.create!(name: "B", year: 3)
 
+Classroom.all.each{ |c| Chatroom.new(name: "#{c.year}-#{c.name}", classroom: c).save! }
+
 teacher = User.create!(
   classroom_id: classroom.id,
   email: "teacher@eusei.com",

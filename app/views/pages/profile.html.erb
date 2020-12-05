@@ -50,12 +50,18 @@
 <div class="container d-flex justify-content-around pt-5 mb-5">
   <div class="col-10">
     <div class="cards-profile pt-3 mb-"3>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://miro.medium.com/max/3840/1*XQg3eidVdSb-KKMAIc_Frw.jpeg)">
-        <%= link_to "Questões", questions_path, class: "text-white text-decoration-none" %>
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
-        <%= link_to "Resultados", dashboard_path(@classroom), class: "text-white text-decoration-none" %>
-      </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://miro.medium.com/max/3840/1*XQg3eidVdSb-KKMAIc_Frw.jpeg)">
+    <%= link_to "Questões", questions_path, class: "text-white text-decoration-none" %>
+  </div>
+
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
+    <%= link_to "Resultados", dashboard_path(@classroom), class: "text-white text-decoration-none" %>
+ </div>
+
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
+    <%= link_to "Mural", chatroom_path(@classroom.chatroom), class: "text-white text-decoration-none" %>
+ </div>
     </div>
   </div>
 </div>
