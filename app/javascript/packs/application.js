@@ -21,3 +21,4 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 document.addEventListener('turbolinks:load', ()=>{
   initChatroomCable();
 });
+import "controllers"
