@@ -23,17 +23,17 @@
   </div>
 </nav>
 
-<div class="banner-profile  pb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-  <div class="pt-5 mt-5">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face %>
+<div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+  <div class="flex-column align-items-center d-flex justify-content-center">
+    <% if current_user and current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, height: 70, width: 70, crop: :thumb, gravity: :face, class: 'rounded-circle mb-4'%>
     <% else %>
-      <i class="fas fa-user-circle d-flex justify-content-center mt-3 mb-4"></i>
+      <i class="fas fa-user-circle d-flex justify-content-center mb-4"></i>
     <% end %>
-    <h3 class="d-flex justify-content-center mt-3 text-white"><%= current_user.name %></h3>
-    <h4 class="d-flex justify-content-center mt-3 text-white"><%= current_user.email %></h4>
-    <h4 class="d-flex justify-content-center mt-3 mb-3 text-white"><%= current_user.subject %></h4>
-    <div class=" d-flex justify-content-center mb-5">
+    <h3 class="text-white"><%= current_user.name %></h3>
+    <h4 class="text-white"><%= current_user.email %></h4>
+    <h4 class="text-white"><%= current_user.subject %></h4>
+    <div>
       <%= link_to "editar?", edit_user_registration_path, class: "text-white" %>
     </div>
   </div>
@@ -41,7 +41,7 @@
 
 <div class=" d-flex justify-content-center">
   <% if current_user.is_teacher %>
-    <%= link_to "Salas de Aula", classrooms_path, class: "btn btn-flat btn-profile" %>
+    <%= link_to "Salas de aula", classrooms_path, class: "btn btn-flat btn-profile" %>
   <% else %>
     <%= link_to "Sala de aula", feed_path(@classroom), class: "btn btn-flat btn-profile" %>
   <% end %>
