@@ -1,6 +1,6 @@
 <div  class="container pt-5">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-4 whitebox">
+    <div class="col-xs-12 col-sm-4 whitebox mb-3">
       <h2 class="text-center mt-2 mb-5"><%= resource_name.to_s.humanize %></h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -26,7 +26,7 @@
                       label: 'Sua senha atual'%>
         </div>
         <div class="form-actions btn btn-flat btn-block">
-          <%= f.button :submit, "Atualizar" %>
+          <%= f.button :submit, "Atualizar"%>
         </div>
       <% end %>
       <div class="d-flex justify-content-between my-3">
