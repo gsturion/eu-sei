@@ -6,6 +6,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
   
   def show?
-    true
+    user.is_teacher || user.classroom == record.classroom
   end
 end

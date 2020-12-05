@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_020448) do
+ActiveRecord::Schema.define(version: 2020_12_05_190529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_020448) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "classroom_id", null: false
+    t.index ["classroom_id"], name: "index_chatrooms_on_classroom_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -88,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_020448) do
   add_foreign_key "alternatives", "questions"
   add_foreign_key "answers", "alternatives"
   add_foreign_key "answers", "users"
+  add_foreign_key "chatrooms", "classrooms"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "questions", "classrooms"

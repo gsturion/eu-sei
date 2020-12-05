@@ -7,6 +7,12 @@ class PagesController < ApplicationController
     end
 
     def profile
-      @classroom = Classroom.find(1)
+      @classroom = Classroom.find(classroom_params)
+    end
+
+    private
+
+    def classroom_params
+      params.require(:classroom).permit(:id)
     end
 end
