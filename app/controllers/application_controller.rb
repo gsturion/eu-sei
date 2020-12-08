@@ -25,6 +25,8 @@ class ApplicationController < ActionController::Base
     profile_path
   end
 
+
+
   private
 
   def skip_pundit?

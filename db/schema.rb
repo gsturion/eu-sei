@@ -54,11 +54,29 @@ ActiveRecord::Schema.define(version: 2020_12_05_142553) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "classroom_id", null: false
+    t.index ["classroom_id"], name: "index_chatrooms_on_classroom_id"
+  end
+
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
     t.integer "year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -95,6 +113,9 @@ ActiveRecord::Schema.define(version: 2020_12_05_142553) do
   add_foreign_key "alternatives", "questions"
   add_foreign_key "answers", "alternatives"
   add_foreign_key "answers", "users"
+  add_foreign_key "chatrooms", "classrooms"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "questions", "classrooms"
   add_foreign_key "questions", "users"
   add_foreign_key "users", "classrooms"

@@ -1,10 +1,13 @@
-<ul>
+<div>
   <% @students.each do |student| %>
-    <li class="mt-2 mb-3">
-      <%= "#{student.name} - #{student.corrects}/#{student.answered}" %>
-    </li>
-  <% end %>
-</ul>
+    <div class="d-flex justify-content-between mb-4 pl-0">
+      <%= "#{student.name}" %>
+    <div class="d-flex justify-content-end">
+      <%= "#{student.corrects}/#{student.answered}" %>
+    <% end %>
+    </div>
+    </div>
+</div>
 <!-- Layout de tabela
 <table class="table table-borderless">
   <thead>
@@ -24,3 +27,4 @@
 </table>
 
 -->
+
