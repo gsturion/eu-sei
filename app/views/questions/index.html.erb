@@ -25,9 +25,9 @@
       <% if @current_user_questions.empty? %>
         <p class="text-center mt-2 mb-4">Não existem questões.</p>
       <% else %>
-        <div>
+        <div class="">
         <% @current_user_questions.each do |question| %>
-          <div class="d-flex justify-content-between mb-4 pl-0"><%= link_to  "Aula #{question.lesson}: #{question.content}", question_path(question)%>
+          <div class="d-flex justify-content-between mb-4 pl-0"><%= "Aula #{question.lesson}: #{question.content}"%>
           <div class="d-flex justify-content-end">
             <%= link_to "", send_question_path(question), method: :patch , class: "far fa-paper-plane  text-decoration-none pr-3" %>
             <%= link_to "", edit_question_path(question), method: :get , class: "far fa-edit  text-decoration-none pr-3" %>
@@ -37,6 +37,9 @@
         <% end %>
         </div>
       <% end %>
+      <div class=" text-center pt-4 pb-3">
+        <%= link_to "", classrooms_path, method: :get , class: "fas fa-plus  text-decoration-none " %>
+      </div>
     </div>
   </div>
 </div>
