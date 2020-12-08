@@ -44,7 +44,7 @@
 <div  class="container pt-5 mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h2 class="text-center mt-2 mb-5">Mural Turma <%= @chatroom.name %></h2>
+      <h2 class="text-center mt-2 mb-5">Mural da <%= @chatroom.name %></h2>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <% @chatroom.messages.each do |message| %>
           <div class="message-container" id="message-<%= message.id %>">
@@ -69,7 +69,7 @@
           <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
         </div>
         <div class="form-actions btn btn-flat btn-block">
-        <%= f.button :submit, "Enviar Mensagem" %>
+        <%= f.button :submit, "Enviar mensagem" %>
        </div>
       <% end %>
     </div>
