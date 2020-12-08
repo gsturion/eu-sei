@@ -1,16 +1,80 @@
-<h1>Mural Turma <%= @chatroom.name %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
+<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">☰</button>
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eu sei!</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <% if current_user %>
+            <%= link_to "Perfil", profile_path, class: "dropdown-item" %>
+            <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
+            <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
+          <% else %>
+            <%= link_to "Login", user_session_path, class: "dropdown-item" %>
+            <%= link_to "Cadastre-se", new_user_registration_path, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- <div  class="container pt-5 mt-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <h2 class="text-center mt-2 mb-5">Mural Turma <%= @chatroom.name %></h2>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <div class="message-container" id="message-<%= message.id %>">
+            <i class="author">
+              <span ><%= message.user.name %></span>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <p><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+        <%= f.submit %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+</div> -->
+
+<div  class="container pt-5 mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 whitebox">
+      <h2 class="text-center mt-2 mb-5">Mural Turma <%= @chatroom.name %></h2>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <div class="message-container" id="message-<%= message.id %>">
+            <div class="author d-flex justify-content-start ">
+              <div class=" align-self-center mr-2">
+                <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle avatar mural '%></span>
+              </div>
+              <div>
+               <div>
+                <span class="mural-info-text-title" ><%= message.user.name %></span>
+               </div>
+              <small class="mural-info-text" ><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </div>
+            </div>
+            <p class=" mb-4"><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
+      <div>
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <div>
+          <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+        </div>
+        <div class="form-actions btn btn-flat btn-block">
+        <%= f.button :submit, "Enviar Mensagem" %>
+       </div>
+      <% end %>
+    </div>
+    </div>
+  </div>
 </div>
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-  <%= f.submit %>
-<% end %>
+
+
