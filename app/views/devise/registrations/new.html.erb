@@ -1,7 +1,9 @@
-<div  class="container pt-5">
+<div  class="container pt-5 mb-3">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-4 whitebox">
-      <h2 class="text-center mt-2 mb-5">Eu-sei!</h2>
+      <div class="mb-5">
+       <img class="logo-login " src="https://uploaddeimagens.com.br/images/002/995/048/original/eusei_Marca-Cor.png?1607461691">
+       </div>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -16,7 +18,7 @@
                       collection: Classroom.all.map{ |c| [ "#{c.year}-#{c.name}", c.id ] } %>
           <%= f.input :is_teacher,
                       label: 'Sou professor',
-                      as: :boolean %>            
+                      as: :boolean %>
           <%= f.input :photo, label: 'Escolha uma foto', as: :file %>
           <%= f.input :password,
                       label: 'Escolha sua senha',

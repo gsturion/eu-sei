@@ -12,6 +12,7 @@
               <% else %>
                 <%= link_to "Sala de aula", feed_path(@classroom), class: "dropdown-item" %>
               <% end %>
+
             <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
           <% else %>
             <%= link_to "Login", user_session_path, class: "dropdown-item" %>
@@ -59,7 +60,7 @@
     <%= link_to "Resultados", dashboard_path(@classroom), class: "text-white text-decoration-none" %>
  </div>
 
- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.monsterinsights.com/wp-content/uploads/2018/04/GA-Vanity-Metrics.jpg)">
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.devprojournal.com/wp-content/uploads/2019/09/communcation-and-culture-e1567689019570-696x391.jpg)">
     <%= link_to "Mural", chatroom_path(@classroom.chatroom), class: "text-white text-decoration-none" %>
  </div>
     </div>
