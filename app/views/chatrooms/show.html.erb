@@ -66,7 +66,7 @@
       <div>
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
         <div>
-          <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+          <%= f.input :content, label: false, placeholder: "Mensagem ##{@chatroom.name}" %>
         </div>
         <div class="form-actions btn btn-flat btn-block">
         <%= f.button :submit, "Enviar mensagem" %>
