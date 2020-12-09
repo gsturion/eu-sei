@@ -18,6 +18,21 @@ import 'bootstrap'
 
 import { initChatroomCable } from '../channels/chatroom_channel';
 
-document.addEventListener('turbolinks:load', ()=>{
+const clearInput = () => {
+  const form = document.getElementById('new_message')
+  const input = document.getElementById('message_content')
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      setTimeout(() => {
+        input.value =""
+        //document.forms[0].reset()
+      }, 300);
+    })
+  }
+}
+
+document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
+  clearInput()
 });

@@ -1,15 +1,15 @@
 <div class="message-container" id="message-<%= message.id %>">
  <div class="message-container" id="message-<%= message.id %>">
-            <div class="author d-flex justify-content-start ">
-              <div class=" align-self-center mr-2">
-                <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle avatar mural '%></span>
-              </div>
-              <div>
-               <div>
-                <span class="mural-info-text-title" ><%= message.user.name %></span>
-               </div>
-              <small class="mural-info-text" ><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-              </div>
-            </div>
-            <p class=" mb-4"><%= message.content %></p>
-          </div>
+    <div class="author d-flex justify-content-start ">
+      <div class=" align-self-center mr-2">
+        <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle avatar mural '%></span>
+      </div>
+      <div>
+        <div>
+          <span class="mural-info-text-title" ><%= message.user.name %></span>
+        </div>
+        <small class="mural-info-text" ><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </div>
+  </div>
+  <p class=" mb-4"><%= message.content %></p>
+</div>
