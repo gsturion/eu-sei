@@ -67,6 +67,7 @@ class QuestionsController < ApplicationController
     authorize @question
     @question.update(released_at: DateTime.now)
     if @question.save
+      
       redirect_to question_path, notice: "Questão enviada"
     end
   end

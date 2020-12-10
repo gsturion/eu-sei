@@ -16,8 +16,8 @@ class ClassroomsController < ApplicationController
     authorize @classroom
 
     if @classroom.save
-      @chatroom = Chatroom.new(name: "#{@classt}")
-      redirect_to classroom_path(@classroom), notice: 'Questão criada com sucesso!'
+      @chatroom = Chatroom.new(name: "#{@classroom.year}-#{@classroom.name}")
+      redirect_to classroom_path(@classroom), notice: 'Turma criada com sucesso!'
     else
       render :new
     end
