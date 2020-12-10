@@ -10,7 +10,7 @@
               <% if current_user.is_teacher %>
                 <%= link_to "Salas de Aula", classrooms_path, class: "dropdown-item" %>
               <% else %>
-                <%= link_to "Sala de aula", feed_path(@classroom), class: "dropdown-item" %>
+                <%= link_to "Sala de aula", feed_path(@chatroom.classroom), class: "dropdown-item" %>
               <% end %>
 
             <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item", method: :delete%>
@@ -56,7 +56,12 @@
           <div class="message-container" id="message-<%= message.id %>">
             <div class="author d-flex justify-content-start ">
               <div class=" align-self-center mr-2">
-                <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle '%></span>
+
+              <% if current_user and message.user.photo.attached? %>
+                  <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle '%></span>
+                <% else %>
+                  <i class="fas fa-user-circle d-flex justify-content-center mb-4 black"></i>
+                <% end %>
               </div>
               <div>
                <div>
