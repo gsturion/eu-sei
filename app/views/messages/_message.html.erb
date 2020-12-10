@@ -2,9 +2,14 @@
  <div class="message-container" id="message-<%= message.id %>">
     <div class="author d-flex justify-content-start ">
       <div class=" align-self-center mr-2">
-        <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle avatar mural '%></span>
-      </div>
-      <div>
+
+        <% if current_user and message.user.photo.attached? %>
+         <span><%= cl_image_tag message.user.photo.key, height: 45, width: 45, crop: :thumb, gravity: :face, :effect=>"grayscale", class: 'rounded-circle '%></span>
+        <% else %>
+          <i class="fas fa-user-circle d-flex justify-content-center mb-4 black"></i>
+          <% end %>
+        </div>
+        <div>
         <div>
           <span class="mural-info-text-title" ><%= message.user.name %></span>
         </div>
