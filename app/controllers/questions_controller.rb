@@ -67,7 +67,10 @@ class QuestionsController < ApplicationController
     authorize @question
     @question.update(released_at: DateTime.now)
     if @question.save
-      
+      FeedChannel.broadcast_to(
+        @classroom,
+        render_to_string(partial: "question", locals: { question: @question })
+      )
       redirect_to question_path, notice: "Questão enviada"
     end
   end

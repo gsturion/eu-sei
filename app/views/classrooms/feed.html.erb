@@ -31,20 +31,7 @@
       <% if @display.empty? %>
         <h4 class="text-center mt-2 mb-2">Aguarde novas questões</h4>
       <% else %>
-        <% @display.each do |question| %>
-          <div class="message-container" id="message-<%= question.id %>">
-            <p class="question"><%= question.content %></p>
-            <%= simple_form_for @answer, url: create_answer_path, remote: true do |f| %>
-              <%= f.input :alternative_id,
-                          as: :radio_buttons,
-                          label: "Resposta:",
-                          collection: question.alternatives,
-                          label_method: :content,
-                          value_method: :id %>
-              <%= f.button :submit, "Enviar", class: "text-white btn btn-flat" %>
-            <% end %>
-          </div>
-        <% end %>
+        <%= render partial: 'question', locals: { answer: @answer} %>
       <% end %>
     </div>
   </div>
