@@ -65,14 +65,14 @@ class QuestionsController < ApplicationController
 
   def send_question
     authorize @question
+    @classroom = @question.classroom
     @question.update(released_at: DateTime.now)
-    if @question.save
-      FeedChannel.broadcast_to(
-        @classroom,
-        render_to_string(partial: "question", locals: { question: @question })
-      )
-      redirect_to question_path, notice: "Questão enviada"
-    end
+    @answer = Answer.new
+    ClassroomChannel.broadcast_to(
+      @classroom,
+      render_to_string(partial: "question", locals: { question: @question })
+    )
+    redirect_to questions_path, notice: "Questão enviada"
   end
 
   private

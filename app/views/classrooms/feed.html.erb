@@ -31,7 +31,11 @@
       <% if @display.empty? %>
         <h4 class="text-center mt-2 mb-2">Aguarde novas questões</h4>
       <% else %>
-        <%= render partial: 'question', locals: { answer: @answer} %>
+        <div id="questions-container">
+          <% @display.each do |question| %>
+            <%= render partial: './questions/question', locals: { question: question} %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
