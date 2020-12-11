@@ -1,6 +1,8 @@
 class ClassroomChannel < ApplicationCable::Channel
   def subscribed
-    classroom = Classroom.find(params[:id])
+    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    classroom = Classroom.find(1)
+    puts classroom.id
     stream_from classroom
   end
 

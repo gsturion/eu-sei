@@ -17,6 +17,7 @@ import 'bootstrap'
 // const imagePath = (name) => images(name, true)
 
 import { initChatroomCable } from '../channels/chatroom_channel';
+import { initClassroomCable } from '../channels/classroom_channel';
 
 const clearInput = () => {
   const form = document.getElementById('new_message')
@@ -34,5 +35,6 @@ const clearInput = () => {
 
 document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
+  initClassroomCable();
   clearInput()
 });
